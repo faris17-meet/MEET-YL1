@@ -1,0 +1,13 @@
+from meet import *
+
+cells=[]
+for x in range(13):
+	get_random_x()
+	get_random_y()
+	cell1={"x":get_random_x(), "y":get_random_y(), "radius":20, "dy":random.random(),"dx":random.random(), "color":"green"}
+	z=create_cell(cell1)
+	cells.append(z)
+ 
+while True:
+        move_cells(cells)
+
