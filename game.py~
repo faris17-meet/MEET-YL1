@@ -1,13 +1,55 @@
-from meet import *
+import meet
+import random
 
 cells=[]
-for x in range(13):
-	get_random_x()
-	get_random_y()
-	cell1={"x":get_random_x(), "y":get_random_y(), "radius":20, "dy":random.random(),"dx":random.random(), "color":"green"}
-	z=create_cell(cell1)
+for i in range(20):
+	cell1={"x":100, "y":200, "radius":random.randint(10,70), "dy":random.randint(-3,3),"dx":random.randint(-3,3), "color":"green"}
+	z=meet.create_cell(cell1)
 	cells.append(z)
- 
-while True:
-        move_cells(cells)
 
+
+user_cell={"x":99, "y":120, "radius":50, "dy":31,"dx":23, "color":"black"}
+z=meet.create_cell(user_cell)
+cells.append(z)
+
+def borders(cells):
+	for a in cells:
+		w=get_screen_width()
+		h=get_screen_height()
+		
+
+
+		if a.xcor()>=w:
+			x=a.get_dx()
+			y=a.get_dy()
+			a.set_dx(-x)
+			a.set_dy(-y)
+		if a.xcor()>=-w:
+			x=a.get_dx()
+			y=a.get_dy()
+			a.set_dx(-x)
+			a.set_dy(-y)
+		if a.ycor()>=h:
+			x=a.get_dx()
+			y=a.get_dy()
+			a.set_dx(-x)
+			a.set_dy(-y)
+		if a.ycor()>=-h:
+			x=a.get_dx()
+			y=a.get_dy()
+			a.set_dx(-x)
+			a.set_dy(-y)
+			
+
+
+
+
+
+while True:
+	dx,dy = meet.get_user_direction(z)
+	user_cell.set_dy(dy)
+	user_cell.set_dx(dx)
+	meet.move_cells(cells)
+	borders(cells)
+
+	
