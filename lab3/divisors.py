@@ -8,4 +8,11 @@ def ex1():
 
 
 def ex2():
+
+	num=int(input("inputnumber"))
+	x=0
+	while x < num:
+		x+=1
+		if n%x ==0:
+			print(x) 
 	

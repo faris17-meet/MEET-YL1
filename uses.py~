@@ -1,0 +1,21 @@
+from animalfile import*
+import random 
+Animals=["dog","cat","fish","bird","pig","elephant","sheep","chicken"]
+zoo=[]
+for x in range(300):
+	a = Animal("woof", Animals[random.randint(0,7)],87)
+	a.eat("nutella")
+	zoo.append(a)
+
+
+
+dog = Animal("woof","Jeff",17)
+cat = Animal("meow","lolo",4)
+
+print(dog.sound)
+dog.eat("bamba")
+cat.eat("besli")
+cat.sleep(" real madrid")
+
+
+
